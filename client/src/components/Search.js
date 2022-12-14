@@ -13,7 +13,7 @@ function Search() {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' },
         }
-        fetch("https://data.mongodb-api.com/app/kbtool-nijhs/endpoint/names", requestOptions)
+        fetch("http://localhost:3001/names", requestOptions)
             .then(res => res.json())
             .then(data => setUsers(data))}, [])
 
@@ -28,7 +28,7 @@ function Search() {
             body: JSON.stringify(newName)
         }
 
-        fetch("https://data.mongodb-api.com/app/kbtool-nijhs/endpoint/names", requestOptions)
+        fetch("http://localhost:3001/names", requestOptions)
             .then(res => res.json())
             .then(data => console.log("1", data))
             .catch(error => console.log(error.messsage))
@@ -61,52 +61,78 @@ function Search() {
       }
      
   return (
-    <div className="App">
+    <div className="main">
+
+    <div className="right">
      <form onSubmit={submitHandle}>
-      <p>Please Enter Names: </p>
+      <h2>Please Enter Names: </h2>
         <input type="text"  value={name} onChange={(e)=>setName(e.target.value)}/>
-        <div><button type="submit">add</button></div>
+        <div>
+          <button type="submit">Add</button>
+          {/* <button type="submit" onClick={() => {
+              const requestOptions = {
+                  method: 'PUT',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify({
+                      level:0
+                  })
+      
+              }
+              fetch(`http://localhost:3001/names`, requestOptions)
+                  .then(res => res.json())
+                  .then(data=>console.log(data))
+                  window.location.reload(false);
+          }}
+          
+          >Reset</button> */}
+
+          </div>
      </form>
      <div>
-        <div>
+        <div className="names">
             {users.sort(((a,b)=>b.level - a.level)).map(names=>(
-          <div key={names.id}>
-              <p>{names.name} {names.level}</p>
-          </div>
+          <ul key={names.id}>
+              <li>{names.name} </li>
+          </ul>
            
             ))}
         </div>
      </div>
-     <div className="App2">
-      <h2>Search Name</h2>
-        <input className="search_input" type="text"
+      </div>
+     <div className="left">
+      <form>
+
+      <h2>Search Name: </h2>
+        <input type="text"
         onChange={e => onChangeHandler(e.target.value)}
         value={text}/>
 
         {suggestions && suggestions.sort(((a,b)=>b.level - a.level)).map((suggestion, i) =>
         
-          <div className="seggestion" key={i} onClick={() => {
-            selectText(suggestion.name);    
-              const requestOptions = {
-                  method: 'PUT',
-                  headers: { 'Content-Type': 'application/json' },
-                  body: JSON.stringify({
-                      level:suggestion.level+1
-                  })
-      
-              }
-              fetch(`https://data.mongodb-api.com/app/kbtool-nijhs/endpoint/names/${suggestion._id}`, requestOptions)
-                  .then(res => res.json())
-                  .then(data=>console.log(data))
-                  // window.location.reload(false);
-          }
+        <div className="seggestion" key={i} onClick={() => {
+          selectText(suggestion.name);    
+          const requestOptions = {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              level:suggestion.level+1
+            })
             
-          }>{suggestion.name} </div>
-
-        )}
+          }
+          fetch(`http://localhost:3001/names/${suggestion._id}`, requestOptions)
+          .then(res => res.json())
+          .then(data=>console.log(data))
+          window.location.reload(false);
+        }
+        
+      }>{suggestion.name} </div>
+      
+      )}
+      </form>
         
     </div>
-         </div>
+    
+    </div>
   );
 }
 

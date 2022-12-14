@@ -110,7 +110,21 @@ app.put('/names/:id', async (req, res) => {
     }
 })
 
+// ----reset level
+// app.put('/names', async (req, res) => {
+//     try {
+//         const newData = await NameModel.find( {},{
+       
+//             level:req.body.level
+//         })
 
+//         res.status(200).send(newData)
+
+//     } catch (error) {
+//         console.log(error.message)
+
+//     }
+// })
 
 
 
