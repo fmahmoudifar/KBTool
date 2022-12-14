@@ -21,5 +21,10 @@
         "name": "getOne",
         "private": false,
         "disable_arg_logs": true
+    },
+    {
+        "name": "allOperations",
+        "private": false,
+        "disable_arg_logs": true
     }
 ]
