@@ -33,7 +33,7 @@
         "return_type": "JSON"
     },
     {
-        "route": "/names/id",
+        "route": "/name",
         "http_method": "GET",
         "function_name": "getOne",
         "validation_method": "NO_VALIDATION",
