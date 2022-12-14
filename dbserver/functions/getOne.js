@@ -4,7 +4,7 @@ exports = function({ query, headers, body}, response) {
     .get("mongodb-atlas")
     .db("test")
     .collection("names")
-    .find({headers})
+    .find(headers.key)
     .toArray();
     
   return docs;
