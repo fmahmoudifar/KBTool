@@ -22,13 +22,13 @@ function Search() {
         e.preventDefault()
         let newName = { name, level }
 
-        const submitOptions = {
+        const requestOptions = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json'},
             body: JSON.stringify(newName)
         }
 
-        fetch("https://data.mongodb-api.com/app/kbtool-nijhs/endpoint/names/", submitOptions)
+        fetch("https://data.mongodb-api.com/app/kbtool-nijhs/endpoint/names", requestOptions)
             .then(res => res.json())
             .then(data => console.log("1", data))
             .catch(error => console.log(error.messsage))
@@ -36,7 +36,10 @@ function Search() {
         setUsers([...users, newName])
         setName("")
         setLevel("")
-        window.location.reload(false);
+        setTimeout(() => {
+          
+         window.location.reload(false);
+        }, 1000);
 
     }
     const onChangeHandler = (text) => {
@@ -62,7 +65,7 @@ function Search() {
      <form onSubmit={submitHandle}>
       <p>Please Enter Names: </p>
         <input type="text"  value={name} onChange={(e)=>setName(e.target.value)}/>
-        {/* <div><button type="submit">add</button></div> */}
+        <div><button type="submit">add</button></div>
      </form>
      <div>
         <div>
@@ -95,7 +98,7 @@ function Search() {
               fetch(`https://data.mongodb-api.com/app/kbtool-nijhs/endpoint/names/${suggestion._id}`, requestOptions)
                   .then(res => res.json())
                   .then(data=>console.log(data))
-                  window.location.reload(false);
+                  // window.location.reload(false);
           }
             
           }>{suggestion.name} </div>
