@@ -1,0 +1,19 @@
+[
+    {
+        "name": "requestOptions",
+        "private": false,
+        "run_as_system": true,
+        "disable_arg_logs": true
+    },
+    {
+        "name": "submitOptions",
+        "private": false,
+        "run_as_system": true,
+        "disable_arg_logs": true
+    },
+    {
+        "name": "onChangeHandler",
+        "private": false,
+        "disable_arg_logs": true
+    }
+]
