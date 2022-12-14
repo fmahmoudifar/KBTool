@@ -3,7 +3,8 @@ exports = function({ query, headers, body}, response) {
     	.get("mongodb-atlas")
     	.db("examples")
     	.collection("people")
-    	.findByIdAndUpdate(event.pathParameters.id, JSON.parse(event.body()));
+    	.findByIdAndUpdate(query.params.id, JSON.parse(body.text()));
 
     return result;
 };
+
