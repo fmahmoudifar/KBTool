@@ -1,10 +1,14 @@
 exports = function({ query, headers, body}, response) {
-    const result = context.services
-    	.get("mongodb-atlas")
-    	.db("examples")
-    	.collection("people")
-    	.findByIdAndUpdate(query.params.id, JSON.parse(body.text()));
+    const {email} = query;
+    const mongodb = context.services.get("mongodb-atlas");
+    // query realm app users by email to retrieve userId ?????
 
-    return result;
+    if (userId){
+      const collection = mongodb.db('test').collection('names')
+      const filter = { userId }
+      const update = {
+        $set: { variable: true },
+      }
+      collection.updateOne(filter, update) 
+    }
 };
-
