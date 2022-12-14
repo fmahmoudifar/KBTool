@@ -13,7 +13,7 @@ function Search() {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' },
         }
-        fetch("http://localhost:3001/names", requestOptions)
+        fetch("https://data.mongodb-api.com/app/kbtool-nijhs/endpoint/names", requestOptions)
             .then(res => res.json())
             .then(data => setUsers(data))}, [])
 
@@ -22,13 +22,13 @@ function Search() {
         e.preventDefault()
         let newName = { name, level }
 
-        const requestOptions = {
+        const submitOptions = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json'},
             body: JSON.stringify(newName)
         }
 
-        fetch("http://localhost:3001/names", requestOptions)
+        fetch("https://data.mongodb-api.com/app/kbtool-nijhs/endpoint/names/", submitOptions)
             .then(res => res.json())
             .then(data => console.log("1", data))
             .catch(error => console.log(error.messsage))
@@ -92,7 +92,7 @@ function Search() {
                   })
       
               }
-              fetch(`http://localhost:3001/names/${suggestion._id}`, requestOptions)
+              fetch(`https://data.mongodb-api.com/app/kbtool-nijhs/endpoint/names/${suggestion._id}`, requestOptions)
                   .then(res => res.json())
                   .then(data=>console.log(data))
                   window.location.reload(false);

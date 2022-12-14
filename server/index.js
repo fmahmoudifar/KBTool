@@ -3,7 +3,7 @@ const cors = require('cors')
 const NameModel = require("./model/model")
 const mongoose = require("mongoose")
 const path = require("path")
-const url = "mongodb+srv://fmahmoudifar:farshad4998@cluster0.zgzb5ab.mongodb.net/?retryWrites=true&w=majority"
+const url = "mongodb+srv://fmahmoudifar:farshad4998@cluster0.zgzb5ab.mongodb.net/?retryWrites=true&w=majority--"
 
 
 const app = express()
