@@ -69,22 +69,7 @@ function Search() {
         <input type="text"  value={name} onChange={(e)=>setName(e.target.value)}/>
         <div>
           <button type="submit">Add</button>
-          {/* <button type="submit" onClick={() => {
-              const requestOptions = {
-                  method: 'PUT',
-                  headers: { 'Content-Type': 'application/json' },
-                  body: JSON.stringify({
-                      level:0
-                  })
-      
-              }
-              fetch(`http://localhost:3001/names`, requestOptions)
-                  .then(res => res.json())
-                  .then(data=>console.log(data))
-                  window.location.reload(false);
-          }}
-          
-          >Reset</button> */}
+
 
           </div>
      </form>

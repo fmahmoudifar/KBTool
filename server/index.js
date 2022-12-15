@@ -27,7 +27,7 @@ database.once('connected', () => {
 
 
 
-
+//--get all
 
 app.get('/names', async (req, res) => {
     try {
@@ -42,7 +42,7 @@ app.get('/names', async (req, res) => {
 })
 
 
-
+//--add
 app.post('/names', async (req, res) => {
     try {
         const newData = await new NameModel({
@@ -61,7 +61,7 @@ app.post('/names', async (req, res) => {
 })
 
 
-// ----get one note
+// ----get one 
 
 app.get('/names/:id', async (req, res) => {
     try {
@@ -77,7 +77,7 @@ app.get('/names/:id', async (req, res) => {
 })
 
 
-// ---- delete a note
+// ---- delete 
 
 app.delete('/names/:id', async (req, res) => {
     try {
@@ -92,7 +92,7 @@ app.delete('/names/:id', async (req, res) => {
     }
 })
 
-// ----update a note
+// ----update 
 app.put('/names/:id', async (req, res) => {
     try {
         const id = req.params.id;
@@ -110,21 +110,7 @@ app.put('/names/:id', async (req, res) => {
     }
 })
 
-// ----reset level
-// app.put('/names', async (req, res) => {
-//     try {
-//         const newData = await NameModel.find( {},{
-       
-//             level:req.body.level
-//         })
 
-//         res.status(200).send(newData)
-
-//     } catch (error) {
-//         console.log(error.message)
-
-//     }
-// })
 
 
 
