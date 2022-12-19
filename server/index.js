@@ -110,6 +110,24 @@ app.put('/names/:id', async (req, res) => {
     }
 })
 
+// ----update 
+// app.put('/names/filter', async (req, res) => {
+//     try {
+//         const id = req.params.id;
+//         const newData = await NameModel.findAndUpdate(id, {
+//             name: req.body.name,
+//             family: req.body.family,
+//             level: req.body.level
+//         })
+
+//         res.status(200).send(newData)
+
+//     } catch (error) {
+//         console.log(error.message)
+
+//     }
+// })
+
 
 
 
