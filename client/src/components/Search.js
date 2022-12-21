@@ -5,7 +5,7 @@ function Search() {
     const [name, setName] = useState("")
     const [level, setLevel] = useState(0.5)
     const [text, setText] = useState('');
-    const [min, setMin] = useState(0.49);
+    const [min, setMin] = useState(0.45);
     // const [max, setMax] = useState(0.9);
     const [suggestions, setSuggestions] = useState([]);   
     
@@ -103,7 +103,7 @@ setTimeout(() => {
         <div className="names">
             {users.sort(((a,b)=>b.level - a.level)).map(names=>(
           <ul key={names.id}>
-              <li>{names.name} </li>
+              <li>{names.name}   {names.level.toFixed(3)}</li>
           </ul>
            
             ))}
